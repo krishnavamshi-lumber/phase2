@@ -580,7 +580,7 @@ class TestPayrollOverview:
         print(f"[OK] Cash Requirement downloaded: {cash_path}")
          
 
-	# --- Paystub ---
+	    # --- Paystub ---
         paystub_item = page.locator("//li[normalize-space()='Paystub']")
         paystub_buffer: Optional[bytes] = None
 
@@ -609,8 +609,8 @@ class TestPayrollOverview:
         log.ok(f"Paystub downloaded: {os.path.basename(paystub_path)}")
         print(f"[OK] Paystub downloaded: {paystub_path}")
 
-        log.ok("All reports downloaded successfully")
-        print(f"\n[OK] All reports downloaded to: {download_dir}\n")
+        log.ok("All payroll reports downloaded successfully")
+        print(f"\n[OK] All payroll reports downloaded to: {download_dir}\n")
 
         # Save tag summary
         tag_counter      = Counter(row.tag for row in timesheet_config.rows if row.tag)
@@ -620,15 +620,196 @@ class TestPayrollOverview:
         print(f"[OK] Tag summary saved: {tag_summary_path}")
 
         # --------------------------------------------------------------------
+        # STEP 10b: Download Union Reports
+        # Skips gracefully if no union pay period found for this company.
+        # Downloads PDF + Excel for every union found in the dropdown.
+        # Files saved as: union_report_<union_name>.pdf / .xlsx
+        # --------------------------------------------------------------------
+        log.section("STEP 10b — Union Report Downloads")
+        print("\nStep 10b: Download Union Reports")
+        print("-" * 40)
+
+        # Convert date format: YYYY-MM-DD → MM/DD/YYYY
+        start_date_obj   = datetime.strptime(_pp_start, "%Y-%m-%d")
+        end_date_obj     = datetime.strptime(_pp_end,   "%Y-%m-%d")
+        formatted_period = (
+            f"{start_date_obj.strftime('%m/%d/%Y')} – {end_date_obj.strftime('%m/%d/%Y')}"
+        )
+
+        # Navigate to union report page
+        union_report_url = get_base_url().rstrip("/") + "/reports/payroll/union_report"
+        page.goto(union_report_url, timeout=60000)
+        page.wait_for_load_state("networkidle")
+        page.wait_for_timeout(3000)
+        log.ok(f"Navigated to Union Report: {union_report_url}")
+        print(f"[OK] Navigated to Union Report page")
+
+        # ── Check if a matching pay period exists for this company ────────────
+        pay_period_locator = page.locator(
+            f'//ul[@data-testid="pay-period-dropdown"]'
+            f' //div[.//p[contains(normalize-space(), "Paid")]]'
+            f' //li[contains(normalize-space(.), "{formatted_period}")]'
+        )
+
+        try:
+            pay_period_locator.first.wait_for(state="visible", timeout=120_000)
+        except Exception:
+            # Pay period not found — this company has no unions for this period
+            msg = f"No union pay period found for '{formatted_period}' — skipping union report download."
+            log.warn(msg)
+            print(f"[INFO] {msg}")
+            # Write a marker file so scheduler knows unions were checked but skipped
+            with open(os.path.join(download_dir, "union_skipped.txt"), "w") as _f:
+                _f.write(msg)
+            # Jump straight to SUMMARY — no union reports for this company
+            self._write_summary(
+                log, run_id, job, _pp_start, _pp_end,
+                download_dir, timesheet_config, _missing_employees,
+            )
+            return
+
+        # ── Select the pay period checkbox ────────────────────────────────────
+        period_count  = pay_period_locator.count()
+        target_period = pay_period_locator.nth(0) if period_count > 1 else pay_period_locator
+        target_period.wait_for(state="visible", timeout=10000)
+
+        checkbox = target_period.locator("input[type='checkbox']")
+        checkbox.click()
+        log.ok(f"Selected union pay period: {formatted_period}")
+        print(f"[OK] Selected pay period: {formatted_period}")
+
+        # Close dropdown
+        page.click("body", position={"x": 100, "y": 100})
+        page.wait_for_timeout(2000)
+        page.wait_for_timeout(10000)   # Wait for report to load
+        log.ok("Union report loaded")
+        print("[OK] Union report loaded")
+
+        # ── Open union dropdown ───────────────────────────────────────────────
+        union_dropdown = page.locator('div[data-testid="select-union-dropdown"]')
+        expect(union_dropdown).to_be_visible(timeout=10000)
+        union_dropdown.click()
+        page.wait_for_timeout(2000)
+        log.ok("Opened union dropdown")
+        print("[OK] Opened union dropdown")
+
+        union_items = page.locator('li[data-testid="project-option-menu-item"]')
+        union_names = [
+            union_items.nth(i).text_content().strip()
+            for i in range(union_items.count())
+        ]
+
+        if not union_names:
+            log.warn("No unions found in dropdown")
+            print("[WARN] No unions found in dropdown")
+            page.click("body", position={"x": 100, "y": 100})
+            with open(os.path.join(download_dir, "union_skipped.txt"), "w") as _f:
+                _f.write("No unions found in dropdown for this company.")
+            self._write_summary(
+                log, run_id, job, _pp_start, _pp_end,
+                download_dir, timesheet_config, _missing_employees,
+            )
+            return
+
+        print(f"[INFO] Found unions: {union_names}")
+        log.info(f"Found unions: {union_names}")
+
+        # Close dropdown before iterating
+        page.click("body", position={"x": 100, "y": 100})
+
+        # ── Download PDF + Excel for each union ───────────────────────────────
+        downloaded_unions: list[str] = []
+
+        for union_name in union_names:
+            # Sanitise union name for use in filename
+            safe_union = re.sub(r"[^\w\-]", "_", union_name).strip("_")
+            print(f"\n[INFO] Processing union: {union_name}")
+            log.info(f"Processing union: {union_name}")
+
+            union_dropdown.click()
+            page.wait_for_timeout(1000)
+
+            union_option = page.locator(
+                f'//li[@data-testid="project-option-menu-item"]'
+                f'[normalize-space()="{union_name}"]'
+            )
+            expect(union_option).to_be_visible(timeout=10000)
+            union_option.click()
+            page.wait_for_timeout(5000)
+
+            
+            download_report_button = page.get_by_role("button", name="Download Report")
+            download_report_button.click(timeout=120000)
+
+            # ── PDF ───────────────────────────────────────────────────────────
+            pdf_option = page.locator('//li[contains(normalize-space(.), "PDF")]')
+            expect(pdf_option).to_be_visible(timeout=10000)
+
+            with page.expect_download(timeout=60000) as pdf_dl:
+                pdf_option.click()
+
+            pdf_filename = f"union_report_{safe_union}.pdf"
+            pdf_path     = os.path.join(download_dir, pdf_filename)
+            pdf_dl.value.save_as(pdf_path)
+            log.ok(f"Union Report PDF downloaded: {pdf_filename}")
+            print(f"[OK] Union Report (PDF): {pdf_filename}")
+
+            # ── Excel ─────────────────────────────────────────────────────────
+            excel_option = page.locator('//li[contains(normalize-space(.), "Excel")]')
+            expect(excel_option).to_be_visible(timeout=10000)
+
+            with page.expect_download(timeout=60000) as excel_dl:
+                excel_option.click()
+
+            excel_filename = f"union_report_{safe_union}.xlsx"
+            excel_path     = os.path.join(download_dir, excel_filename)
+            excel_dl.value.save_as(excel_path)
+            log.ok(f"Union Report Excel downloaded: {excel_filename}")
+            print(f"[OK] Union Report (Excel): {excel_filename}")
+
+            downloaded_unions.append(safe_union)
+
+            # Close dropdown
+            page.click("body", position={"x": 100, "y": 100})
+
+        log.ok(f"All union reports downloaded: {downloaded_unions}")
+        print(f"[OK] All union reports downloaded: {downloaded_unions}")
+
+        # ── Write list of downloaded union names for scheduler to read ────────
+        union_list_path = os.path.join(download_dir, "union_names.json")
+        with open(union_list_path, "w", encoding="utf-8") as _uf:
+            json.dump(downloaded_unions, _uf, indent=2)
+        print(f"[OK] Union names saved: {union_list_path}")
+
+        # --------------------------------------------------------------------
         # SUMMARY
         # --------------------------------------------------------------------
+        self._write_summary(
+            log, run_id, job, _pp_start, _pp_end,
+            download_dir, timesheet_config, _missing_employees,
+        )
+
+    # ── Shared summary writer ─────────────────────────────────────────────────
+    def _write_summary(
+        self,
+        log:              "_StepLog",
+        run_id:           str,
+        job:              dict,
+        pp_start:         str,
+        pp_end:           str,
+        download_dir:     str,
+        timesheet_config: "TimesheetUploadConfig",
+        missing_employees: list[str],
+    ) -> None:
+        _missing_employees = missing_employees or log.get_missing()
+        _verified = len(timesheet_config.users) - len(_missing_employees)
+
         log.section("SUMMARY")
-        log.info(f"Status      : COMPLETE")
+        log.info("Status      : COMPLETE")
         log.info(f"run_id      : {run_id}")
         log.info(f"username    : {job['username']}")
-        log.info(f"period      : {_pp_start} to {_pp_end}")
+        log.info(f"period      : {pp_start} to {pp_end}")
         log.info(f"downloads   : {download_dir}")
-        _verified = len(timesheet_config.users) - len(_missing_employees)
         log.info(f"employees   : {_verified}/{len(timesheet_config.users)} verified on overview")
         if _missing_employees:
             log.warn(f"Missing employees on overview: {', '.join(_missing_employees)}")
@@ -638,11 +819,15 @@ class TestPayrollOverview:
         print(f"{'=' * 80}")
         print(f"  run_id       : {run_id}")
         print(f"  username     : {job['username']}")
-        print(f"  period       : {_pp_start} to {_pp_end}")
+        print(f"  period       : {pp_start} to {pp_end}")
         print(f"  downloads    : {download_dir}")
         print(f"  total rows   : {len(timesheet_config.rows)}")
         print(f"  users        : {len(timesheet_config.users)}")
         for idx, u in enumerate(timesheet_config.users, start=1):
-            _status = "(MISSING from overview)" if f"{u.last_name}, {u.first_name}" in _missing_employees else ""
+            _status = (
+                "(MISSING from overview)"
+                if f"{u.last_name}, {u.first_name}" in _missing_employees
+                else ""
+            )
             print(f"    [{idx}] {u.first_name} {u.last_name} (ID: {u.emp_id}) {_status}")
         print(f"{'=' * 80}\n")
