@@ -1,0 +1,80 @@
+================================================================================
+PHASE 2 PAYROLL RUN LOG
+================================================================================
+Run ID   : 179e3851
+Username : neel.madi@lumberfi.com
+Period   : 2026-04-07 to 2026-04-14
+Started  : 2026-04-17 12:46:03
+
+[12:46:03] [INFO] Download directory: C:\Users\Dell\Desktop\payroll_phase2\data-driven-files\timesheets\downloads\2026-04-17_12-45-56
+
+================================================================================
+STEP 8 — Authentication & Navigation
+================================================================================
+[12:46:48] [OK]   Authentication completed
+[12:47:13] [OK]   Navigated to Payroll Overview: https://qa-admin.lumberfi.com/payroll/overview
+
+================================================================================
+STEP 8c — Pay Period Selection & Employee Verification
+================================================================================
+[12:47:13] [INFO] Attempt 1/10: selecting pay period
+[12:47:18] [OK]   Pay period selected: 2026-04-07 to 2026-04-13
+[12:47:21] [WARN] Employee not found on overview: Brown, Amit
+[12:47:22] [OK]   Employee found: Davis, Amit
+[12:47:22] [OK]   Employee found: Thomas, Amit
+[12:47:22] [OK]   Employee found: Smith, Anjali
+[12:47:22] [OK]   Employee found: Williams, Anjali
+[12:47:22] [OK]   Employee found: Wilson, Anjali
+[12:47:22] [OK]   Employee found: Gupta, Charles
+[12:47:22] [OK]   Employee found: Hernandez, Charles
+[12:47:22] [OK]   Employee found: Gonzalez, David
+[12:47:22] [OK]   Employee found: Mehta, David
+[12:47:22] [OK]   Employee found: Moore, James
+[12:47:22] [OK]   Employee found: Sharma, James
+[12:47:22] [OK]   Employee found: Williams, James
+[12:47:22] [OK]   Employee found: Sharma, Jessica
+[12:47:22] [OK]   Employee found: Singh, Jessica
+[12:47:22] [OK]   Employee found: Gonzalez, John
+[12:47:22] [OK]   Employee found: Miller, Joseph
+[12:47:22] [OK]   Employee found: Davis, Karen
+[12:47:22] [OK]   Employee found: Taylor, Karen
+[12:47:22] [OK]   Employee found: Kumar, Lara
+[12:47:22] [OK]   Employee found: Hernandez, Linda
+[12:47:22] [OK]   Employee found: Kumar, Linda
+[12:47:22] [OK]   Employee found: Hernandez, Mary
+[12:47:22] [OK]   Employee found: Brown, Michael
+[12:47:22] [OK]   Employee found: Madi, Neel
+[12:47:22] [OK]   Employee found: Gupta, Patricia
+[12:47:22] [OK]   Employee found: Patel, Patricia
+[12:47:27] [WARN] Employee not found on overview: Wilson, Patricia
+[12:47:27] [OK]   Employee found: Brown, Priya
+[12:47:27] [OK]   Employee found: Davis, Priya
+[12:47:27] [OK]   Employee found: Pasha, Raun
+[12:47:27] [OK]   Employee found: Jackson, Richard
+[12:47:27] [OK]   Employee found: Wilson, Richard
+[12:47:27] [OK]   Employee found: Jones, Robert
+[12:47:27] [OK]   Employee found: Lopez, Sarah
+[12:47:27] [OK]   Employee found: Smith, Sarah
+[12:47:27] [OK]   Employee found: nikar, sima
+[12:47:27] [OK]   Employee found: Davis, Sneha
+[12:47:27] [OK]   Employee found: Mehta, Sneha
+[12:47:27] [OK]   Employee found: Patel, Susan
+[12:47:28] [OK]   Employee found: Hernandez, Thomas
+[12:47:28] [OK]   Employee found: Mehta, Thomas
+[12:47:28] [OK]   Employee found: Rodriguez, Thomas
+[12:47:28] [OK]   Employee found: Anderson, Vikram
+[12:47:28] [OK]   Employee found: Jones, Vikram
+[12:47:28] [OK]   Employee found: Patel, William
+[12:47:28] [OK]   Employee found: Rodriguez, William
+[12:47:28] [INFO] Employee check complete: 45/47 found | Missing: Brown, Amit, Wilson, Patricia
+[12:47:28] [WARN] Proceeding with 2 unverified employee(s): ['Brown, Amit', 'Wilson, Patricia']
+
+================================================================================
+STEP 9 — Payroll Preview & Submit
+================================================================================
+[12:47:38] [OK]   Clicked Preview button
+[12:48:08] [OK]   Navigated to Payroll Preview page
+
+================================================================================
+Log saved: 2026-04-17 12:48:08
+================================================================================

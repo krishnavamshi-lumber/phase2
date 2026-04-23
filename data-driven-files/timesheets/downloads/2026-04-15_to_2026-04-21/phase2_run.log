@@ -1,0 +1,59 @@
+================================================================================
+PHASE 2 PAYROLL RUN LOG
+================================================================================
+Run ID   : 429de543
+Username : wednesday@lumberfi.com
+Period   : 2026-04-15 to 2026-04-21
+Started  : 2026-04-21 21:30:08
+
+[21:30:08] [INFO] Download directory: /home/ubuntu/payroll_phase2/data-driven-files/timesheets/downloads/2026-04-22_03-00-06
+
+================================================================================
+STEP 8 — Authentication & Navigation
+================================================================================
+[21:30:30] [OK]   Authentication completed
+[21:30:36] [OK]   Navigated to Payroll Overview: https://qa-admin.lumberfi.com/payroll/overview
+
+================================================================================
+STEP 8c — Pay Period Selection & Employee Verification
+================================================================================
+[21:30:36] [INFO] Attempt 1/10: selecting pay period
+[21:30:43] [OK]   Pay period selected: 2026-04-15 to 2026-04-21
+[21:31:45] [WARN] Employee not found on overview: Smith, David
+[21:31:50] [WARN] Employee not found on overview: Jones, Elizabeth
+[21:31:55] [WARN] Employee not found on overview: Mehta, James
+[21:32:00] [WARN] Employee not found on overview: Miller, Jennifer
+[21:32:00] [INFO] Employee check complete: 0/4 found | Missing: Smith, David, Jones, Elizabeth, Mehta, James, Miller, Jennifer
+[21:32:00] [WARN] Proceeding with 4 unverified employee(s): ['Smith, David', 'Jones, Elizabeth', 'Mehta, James', 'Miller, Jennifer']
+
+================================================================================
+STEP 9 — Payroll Preview & Submit
+================================================================================
+[21:32:10] [OK]   Clicked Preview button
+[21:32:40] [OK]   Navigated to Payroll Preview page
+[21:32:43] [OK]   Submitted payroll preview
+[21:32:43] [OK]   Confirmed Submit Payroll in modal
+[21:32:48] [OK]   Closed submission modal
+
+================================================================================
+STEP 10 — Report Downloads
+================================================================================
+[21:37:03] [OK]   Payroll Paycheck downloaded: payroll_paycheck_2026-04-15_to_2026-04-21.pdf
+[21:37:04] [OK]   Cash Requirement downloaded: cash_requirement_2026-04-15_to_2026-04-21.pdf
+[21:37:05] [OK]   Paystub downloaded: paystub_2026-04-15_to_2026-04-21.pdf
+[21:37:05] [OK]   All reports downloaded successfully
+
+================================================================================
+SUMMARY
+================================================================================
+[21:37:05] [INFO] Status      : COMPLETE
+[21:37:05] [INFO] run_id      : 429de543
+[21:37:05] [INFO] username    : wednesday@lumberfi.com
+[21:37:05] [INFO] period      : 2026-04-15 to 2026-04-21
+[21:37:05] [INFO] downloads   : /home/ubuntu/payroll_phase2/data-driven-files/timesheets/downloads/2026-04-22_03-00-06
+[21:37:05] [INFO] employees   : 0/4 verified on overview
+[21:37:05] [WARN] Missing employees on overview: Smith, David, Jones, Elizabeth, Mehta, James, Miller, Jennifer
+
+================================================================================
+Log saved: 2026-04-21 21:37:05
+================================================================================

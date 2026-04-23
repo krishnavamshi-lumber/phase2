@@ -1,0 +1,89 @@
+================================================================================
+PHASE 2 PAYROLL RUN LOG
+================================================================================
+Run ID   : 1f2494dc
+Username : neel.madi@lumberfi.com
+Period   : 2026-04-21 to 2026-04-28
+Started  : 2026-04-21 10:33:15
+
+[10:33:15] [INFO] Download directory: /home/ubuntu/payroll_phase2/data-driven-files/timesheets/downloads/2026-04-21_16-03-13
+
+================================================================================
+STEP 8 — Authentication & Navigation
+================================================================================
+[10:33:34] [OK]   Authentication completed
+[10:33:40] [OK]   Navigated to Payroll Overview: https://qa-admin.lumberfi.com/payroll/overview
+
+================================================================================
+STEP 8c — Pay Period Selection & Employee Verification
+================================================================================
+[10:33:40] [INFO] Attempt 1/10: selecting pay period
+[10:33:48] [OK]   Pay period selected: 2026-04-21 to 2026-04-27
+[10:33:50] [OK]   Employee found: Brown, Amit
+[10:33:50] [OK]   Employee found: Davis, Amit
+[10:33:50] [OK]   Employee found: Thomas, Amit
+[10:33:50] [OK]   Employee found: Smith, Anjali
+[10:33:50] [OK]   Employee found: Williams, Anjali
+[10:33:50] [OK]   Employee found: Wilson, Anjali
+[10:33:50] [OK]   Employee found: Gupta, Charles
+[10:33:50] [OK]   Employee found: Hernandez, Charles
+[10:33:50] [OK]   Employee found: Gonzalez, David
+[10:33:50] [OK]   Employee found: Mehta, David
+[10:33:50] [OK]   Employee found: Moore, James
+[10:33:50] [OK]   Employee found: Sharma, James
+[10:33:50] [OK]   Employee found: Williams, James
+[10:33:50] [OK]   Employee found: Sharma, Jessica
+[10:33:50] [OK]   Employee found: Singh, Jessica
+[10:33:50] [OK]   Employee found: Gonzalez, John
+[10:33:50] [OK]   Employee found: Miller, Joseph
+[10:33:50] [OK]   Employee found: Davis, Karen
+[10:33:50] [OK]   Employee found: Taylor, Karen
+[10:33:50] [OK]   Employee found: Kumar, Lara
+[10:33:50] [OK]   Employee found: Hernandez, Linda
+[10:33:50] [OK]   Employee found: Kumar, Linda
+[10:33:50] [OK]   Employee found: Hernandez, Mary
+[10:33:50] [OK]   Employee found: Brown, Michael
+[10:33:50] [OK]   Employee found: Madi, Neel
+[10:33:50] [OK]   Employee found: Gupta, Patricia
+[10:33:50] [OK]   Employee found: Patel, Patricia
+[10:33:50] [OK]   Employee found: Wilson, Patricia
+[10:33:50] [OK]   Employee found: Brown, Priya
+[10:33:50] [OK]   Employee found: Davis, Priya
+[10:33:50] [OK]   Employee found: Pasha, Raun
+[10:33:50] [OK]   Employee found: Jackson, Richard
+[10:33:50] [OK]   Employee found: Wilson, Richard
+[10:33:50] [OK]   Employee found: Jones, Robert
+[10:33:50] [OK]   Employee found: Lopez, Sarah
+[10:33:50] [OK]   Employee found: Smith, Sarah
+[10:33:50] [OK]   Employee found: nikar, sima
+[10:33:50] [OK]   Employee found: Davis, Sneha
+[10:33:50] [OK]   Employee found: Mehta, Sneha
+[10:33:50] [OK]   Employee found: Patel, Susan
+[10:33:50] [OK]   Employee found: Hernandez, Thomas
+[10:33:50] [OK]   Employee found: Mehta, Thomas
+[10:33:50] [OK]   Employee found: Rodriguez, Thomas
+[10:33:50] [OK]   Employee found: Anderson, Vikram
+[10:33:50] [OK]   Employee found: Jones, Vikram
+[10:33:50] [OK]   Employee found: Patel, William
+[10:33:50] [OK]   Employee found: Rodriguez, William
+[10:33:50] [INFO] Employee check complete: 47/47 found
+[10:33:50] [OK]   All employees verified on overview page
+
+================================================================================
+STEP 9 — Payroll Preview & Submit
+================================================================================
+[10:34:01] [OK]   Clicked Preview button
+[10:34:31] [OK]   Navigated to Payroll Preview page
+[10:34:34] [OK]   Submitted payroll preview
+[10:34:34] [OK]   Confirmed Submit Payroll in modal
+[10:34:41] [OK]   Closed submission modal
+
+================================================================================
+STEP 10 — Report Downloads
+================================================================================
+[10:38:56] [OK]   Payroll Paycheck downloaded: payroll_paycheck_2026-04-21_to_2026-04-27.pdf
+[10:38:58] [OK]   Cash Requirement downloaded: cash_requirement_2026-04-21_to_2026-04-27.pdf
+
+================================================================================
+Log saved: 2026-04-21 10:48:58
+================================================================================

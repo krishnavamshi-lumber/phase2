@@ -1,0 +1,80 @@
+================================================================================
+PHASE 2 PAYROLL RUN LOG
+================================================================================
+Run ID   : f4749aed
+Username : neel.madi@lumberfi.com
+Period   : 2026-04-14 to 2026-04-20
+Started  : 2026-04-17 10:50:32
+
+[10:50:32] [INFO] Download directory: C:\Users\Dell\Desktop\payroll_phase2\data-driven-files\timesheets\downloads\2026-04-17_10-50-23
+
+================================================================================
+STEP 8 — Authentication & Navigation
+================================================================================
+[10:50:53] [OK]   Authentication completed
+[10:51:08] [OK]   Navigated to Payroll Overview: https://qa-admin.lumberfi.com/payroll/overview
+
+================================================================================
+STEP 8c — Pay Period Selection & Employee Verification
+================================================================================
+[10:51:08] [INFO] Attempt 1/10: selecting pay period
+[10:51:11] [OK]   Pay period selected: 2026-04-14 to 2026-04-20
+[10:51:13] [OK]   Employee found: Brown, Amit
+[10:51:13] [OK]   Employee found: Davis, Amit
+[10:51:13] [OK]   Employee found: Thomas, Amit
+[10:51:13] [OK]   Employee found: Smith, Anjali
+[10:51:13] [OK]   Employee found: Williams, Anjali
+[10:51:13] [OK]   Employee found: Wilson, Anjali
+[10:51:13] [OK]   Employee found: Gupta, Charles
+[10:51:13] [OK]   Employee found: Hernandez, Charles
+[10:51:13] [OK]   Employee found: Gonzalez, David
+[10:51:13] [OK]   Employee found: Mehta, David
+[10:51:13] [OK]   Employee found: Moore, James
+[10:51:13] [OK]   Employee found: Sharma, James
+[10:51:13] [OK]   Employee found: Williams, James
+[10:51:13] [OK]   Employee found: Sharma, Jessica
+[10:51:13] [OK]   Employee found: Singh, Jessica
+[10:51:13] [OK]   Employee found: Gonzalez, John
+[10:51:13] [OK]   Employee found: Miller, Joseph
+[10:51:13] [OK]   Employee found: Davis, Karen
+[10:51:13] [OK]   Employee found: Taylor, Karen
+[10:51:13] [OK]   Employee found: Kumar, Lara
+[10:51:13] [OK]   Employee found: Hernandez, Linda
+[10:51:13] [OK]   Employee found: Kumar, Linda
+[10:51:13] [OK]   Employee found: Hernandez, Mary
+[10:51:18] [WARN] Employee not found on overview: Brown, Michael
+[10:51:18] [OK]   Employee found: Madi, Neel
+[10:51:18] [OK]   Employee found: Gupta, Patricia
+[10:51:18] [OK]   Employee found: Patel, Patricia
+[10:51:23] [WARN] Employee not found on overview: Wilson, Patricia
+[10:51:23] [OK]   Employee found: Brown, Priya
+[10:51:23] [OK]   Employee found: Davis, Priya
+[10:51:23] [OK]   Employee found: Pasha, Raun
+[10:51:23] [OK]   Employee found: Jackson, Richard
+[10:51:23] [OK]   Employee found: Wilson, Richard
+[10:51:23] [OK]   Employee found: Jones, Robert
+[10:51:23] [OK]   Employee found: Lopez, Sarah
+[10:51:23] [OK]   Employee found: Smith, Sarah
+[10:51:23] [OK]   Employee found: nikar, sima
+[10:51:23] [OK]   Employee found: Davis, Sneha
+[10:51:23] [OK]   Employee found: Mehta, Sneha
+[10:51:23] [OK]   Employee found: Patel, Susan
+[10:51:23] [OK]   Employee found: Hernandez, Thomas
+[10:51:23] [OK]   Employee found: Mehta, Thomas
+[10:51:23] [OK]   Employee found: Rodriguez, Thomas
+[10:51:23] [OK]   Employee found: Anderson, Vikram
+[10:51:23] [OK]   Employee found: Jones, Vikram
+[10:51:23] [OK]   Employee found: Patel, William
+[10:51:23] [OK]   Employee found: Rodriguez, William
+[10:51:23] [INFO] Employee check complete: 45/47 found | Missing: Brown, Michael, Wilson, Patricia
+[10:51:23] [WARN] Proceeding with 2 unverified employee(s): ['Brown, Michael', 'Wilson, Patricia']
+
+================================================================================
+STEP 9 — Payroll Preview & Submit
+================================================================================
+[10:51:33] [OK]   Clicked Preview button
+[10:52:03] [OK]   Navigated to Payroll Preview page
+
+================================================================================
+Log saved: 2026-04-17 10:52:36
+================================================================================

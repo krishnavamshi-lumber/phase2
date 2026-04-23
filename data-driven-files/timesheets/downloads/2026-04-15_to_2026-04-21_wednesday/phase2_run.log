@@ -1,0 +1,58 @@
+================================================================================
+PHASE 2 PAYROLL RUN LOG
+================================================================================
+Run ID   : 429de543
+Username : wednesday@lumberfi.com
+Period   : 2026-04-15 to 2026-04-21
+Started  : 2026-04-22 05:52:27
+
+[05:52:27] [INFO] Download directory: /home/ubuntu/payroll_phase2/data-driven-files/timesheets/downloads/2026-04-22_11-22-25
+
+================================================================================
+STEP 8 — Authentication & Navigation
+================================================================================
+[05:52:47] [OK]   Authentication completed
+[05:52:53] [OK]   Navigated to Payroll Overview: https://qa-admin.lumberfi.com/payroll/overview
+
+================================================================================
+STEP 8c — Pay Period Selection & Employee Verification
+================================================================================
+[05:52:53] [INFO] Attempt 1/10: selecting pay period
+[05:53:00] [OK]   Pay period selected: 2026-04-15 to 2026-04-21
+[05:53:02] [OK]   Employee found: Smith, David
+[05:53:02] [OK]   Employee found: Jones, Elizabeth
+[05:53:02] [OK]   Employee found: Mehta, James
+[05:53:02] [OK]   Employee found: Miller, Jennifer
+[05:53:02] [INFO] Employee check complete: 4/4 found
+[05:53:02] [OK]   All employees verified on overview page
+
+================================================================================
+STEP 9 — Payroll Preview & Submit
+================================================================================
+[05:53:12] [OK]   Clicked Preview button
+[05:53:42] [OK]   Navigated to Payroll Preview page
+[05:53:45] [OK]   Submitted payroll preview
+[05:53:45] [OK]   Confirmed Submit Payroll in modal
+[05:53:51] [OK]   Closed submission modal
+
+================================================================================
+STEP 10 — Report Downloads
+================================================================================
+[05:58:06] [OK]   Payroll Paycheck downloaded: payroll_paycheck_2026-04-15_to_2026-04-21.pdf
+[05:58:07] [OK]   Cash Requirement downloaded: cash_requirement_2026-04-15_to_2026-04-21.pdf
+[05:58:09] [OK]   Paystub downloaded: paystub_2026-04-15_to_2026-04-21.pdf
+[05:58:09] [OK]   All reports downloaded successfully
+
+================================================================================
+SUMMARY
+================================================================================
+[05:58:09] [INFO] Status      : COMPLETE
+[05:58:09] [INFO] run_id      : 429de543
+[05:58:09] [INFO] username    : wednesday@lumberfi.com
+[05:58:09] [INFO] period      : 2026-04-15 to 2026-04-21
+[05:58:09] [INFO] downloads   : /home/ubuntu/payroll_phase2/data-driven-files/timesheets/downloads/2026-04-22_11-22-25
+[05:58:09] [INFO] employees   : 4/4 verified on overview
+
+================================================================================
+Log saved: 2026-04-22 05:58:09
+================================================================================

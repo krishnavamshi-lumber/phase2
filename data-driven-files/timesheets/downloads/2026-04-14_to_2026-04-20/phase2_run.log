@@ -1,0 +1,102 @@
+================================================================================
+PHASE 2 PAYROLL RUN LOG
+================================================================================
+Run ID   : f4749aed
+Username : neel.madi@lumberfi.com
+Period   : 2026-04-14 to 2026-04-20
+Started  : 2026-04-17 11:48:30
+
+[11:48:30] [INFO] Download directory: C:\Users\Dell\Desktop\payroll_phase2\data-driven-files\timesheets\downloads\2026-04-17_11-48-27
+
+================================================================================
+STEP 8 — Authentication & Navigation
+================================================================================
+[11:48:57] [OK]   Authentication completed
+[11:49:12] [OK]   Navigated to Payroll Overview: https://qa-admin.lumberfi.com/payroll/overview
+
+================================================================================
+STEP 8c — Pay Period Selection & Employee Verification
+================================================================================
+[11:49:12] [INFO] Attempt 1/10: selecting pay period
+[11:49:15] [OK]   Pay period selected: 2026-04-14 to 2026-04-20
+[11:49:17] [OK]   Employee found: Brown, Amit
+[11:49:17] [OK]   Employee found: Davis, Amit
+[11:49:17] [OK]   Employee found: Thomas, Amit
+[11:49:17] [OK]   Employee found: Smith, Anjali
+[11:49:17] [OK]   Employee found: Williams, Anjali
+[11:49:17] [OK]   Employee found: Wilson, Anjali
+[11:49:17] [OK]   Employee found: Gupta, Charles
+[11:49:17] [OK]   Employee found: Hernandez, Charles
+[11:49:17] [OK]   Employee found: Gonzalez, David
+[11:49:17] [OK]   Employee found: Mehta, David
+[11:49:17] [OK]   Employee found: Moore, James
+[11:49:17] [OK]   Employee found: Sharma, James
+[11:49:17] [OK]   Employee found: Williams, James
+[11:49:17] [OK]   Employee found: Sharma, Jessica
+[11:49:17] [OK]   Employee found: Singh, Jessica
+[11:49:17] [OK]   Employee found: Gonzalez, John
+[11:49:17] [OK]   Employee found: Miller, Joseph
+[11:49:17] [OK]   Employee found: Davis, Karen
+[11:49:17] [OK]   Employee found: Taylor, Karen
+[11:49:17] [OK]   Employee found: Kumar, Lara
+[11:49:17] [OK]   Employee found: Hernandez, Linda
+[11:49:17] [OK]   Employee found: Kumar, Linda
+[11:49:17] [OK]   Employee found: Hernandez, Mary
+[11:49:22] [WARN] Employee not found on overview: Brown, Michael
+[11:49:22] [OK]   Employee found: Madi, Neel
+[11:49:22] [OK]   Employee found: Gupta, Patricia
+[11:49:22] [OK]   Employee found: Patel, Patricia
+[11:49:27] [WARN] Employee not found on overview: Wilson, Patricia
+[11:49:27] [OK]   Employee found: Brown, Priya
+[11:49:27] [OK]   Employee found: Davis, Priya
+[11:49:27] [OK]   Employee found: Pasha, Raun
+[11:49:27] [OK]   Employee found: Jackson, Richard
+[11:49:27] [OK]   Employee found: Wilson, Richard
+[11:49:27] [OK]   Employee found: Jones, Robert
+[11:49:27] [OK]   Employee found: Lopez, Sarah
+[11:49:27] [OK]   Employee found: Smith, Sarah
+[11:49:27] [OK]   Employee found: nikar, sima
+[11:49:27] [OK]   Employee found: Davis, Sneha
+[11:49:27] [OK]   Employee found: Mehta, Sneha
+[11:49:27] [OK]   Employee found: Patel, Susan
+[11:49:27] [OK]   Employee found: Hernandez, Thomas
+[11:49:27] [OK]   Employee found: Mehta, Thomas
+[11:49:27] [OK]   Employee found: Rodriguez, Thomas
+[11:49:27] [OK]   Employee found: Anderson, Vikram
+[11:49:27] [OK]   Employee found: Jones, Vikram
+[11:49:27] [OK]   Employee found: Patel, William
+[11:49:27] [OK]   Employee found: Rodriguez, William
+[11:49:27] [INFO] Employee check complete: 45/47 found | Missing: Brown, Michael, Wilson, Patricia
+[11:49:27] [WARN] Proceeding with 2 unverified employee(s): ['Brown, Michael', 'Wilson, Patricia']
+
+================================================================================
+STEP 9 — Payroll Preview & Submit
+================================================================================
+[11:49:38] [OK]   Clicked Preview button
+[11:50:08] [OK]   Navigated to Payroll Preview page
+[11:50:11] [OK]   Submitted payroll preview
+[11:50:11] [OK]   Confirmed Submit Payroll in modal
+[11:50:16] [OK]   Closed submission modal
+
+================================================================================
+STEP 10 — Report Downloads
+================================================================================
+[11:52:29] [OK]   Payroll Paycheck downloaded: payroll_paycheck_2026-04-14_to_2026-04-20.pdf
+[11:52:32] [OK]   Cash Requirement downloaded: cash_requirement_2026-04-14_to_2026-04-20.pdf
+[11:53:54] [OK]   Paystub downloaded: paystub_2026-04-14_to_2026-04-20.pdf
+[11:53:54] [OK]   All reports downloaded successfully
+
+================================================================================
+SUMMARY
+================================================================================
+[11:53:54] [INFO] Status      : COMPLETE
+[11:53:54] [INFO] run_id      : f4749aed
+[11:53:54] [INFO] username    : neel.madi@lumberfi.com
+[11:53:54] [INFO] period      : 2026-04-14 to 2026-04-20
+[11:53:54] [INFO] downloads   : C:\Users\Dell\Desktop\payroll_phase2\data-driven-files\timesheets\downloads\2026-04-17_11-48-27
+[11:53:54] [INFO] employees   : 45/47 verified on overview
+[11:53:54] [WARN] Missing employees on overview: Brown, Michael, Wilson, Patricia
+
+================================================================================
+Log saved: 2026-04-17 11:53:54
+================================================================================

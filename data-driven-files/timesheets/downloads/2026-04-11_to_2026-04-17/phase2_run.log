@@ -1,0 +1,70 @@
+================================================================================
+PHASE 2 PAYROLL RUN LOG
+================================================================================
+Run ID   : 179e3852
+Username : testing@gmail.com
+Period   : 2026-04-11 to 2026-04-17
+Started  : 2026-04-17 16:04:56
+
+[16:04:56] [INFO] Download directory: C:\Users\Dell\Desktop\payroll_phase2\data-driven-files\timesheets\downloads\2026-04-17_16-04-51
+
+================================================================================
+STEP 8 — Authentication & Navigation
+================================================================================
+[16:05:15] [OK]   Authentication completed
+[16:05:27] [OK]   Navigated to Payroll Overview: https://qa-admin.lumberfi.com/payroll/overview
+
+================================================================================
+STEP 8c — Pay Period Selection & Employee Verification
+================================================================================
+[16:05:27] [INFO] Attempt 1/10: selecting pay period
+[16:05:30] [OK]   Pay period selected: 2026-04-11 to 2026-04-17
+[16:05:32] [WARN] Employee not found on overview: 1, User
+[16:05:32] [WARN] Employee not found on overview: 2, User
+[16:05:32] [WARN] Employee not found on overview: 3, User
+[16:05:32] [WARN] Employee not found on overview: 4, User
+[16:05:32] [WARN] Employee not found on overview: 5, User
+[16:05:32] [OK]   Employee found: 6, User
+[16:05:32] [OK]   Employee found: 7, User
+[16:05:32] [OK]   Employee found: 8, User
+[16:05:32] [OK]   Employee found: 9, User
+[16:05:32] [OK]   Employee found: 10, User
+[16:05:32] [OK]   Employee found: 11, User
+[16:05:33] [OK]   Employee found: 12, User
+[16:05:33] [OK]   Employee found: 13, User
+[16:05:33] [OK]   Employee found: 14, User
+[16:05:33] [OK]   Employee found: 15, User
+[16:05:33] [INFO] Employee check complete: 10/15 found | Missing: 1, User, 2, User, 3, User, 4, User, 5, User
+[16:05:33] [WARN] Proceeding with 5 unverified employee(s): ['1, User', '2, User', '3, User', '4, User', '5, User']
+
+================================================================================
+STEP 9 — Payroll Preview & Submit
+================================================================================
+[16:05:43] [OK]   Clicked Preview button
+[16:05:49] [OK]   Navigated to Payroll Preview page
+[16:05:52] [OK]   Submitted payroll preview
+[16:05:52] [OK]   Confirmed Submit Payroll in modal
+[16:05:57] [OK]   Closed submission modal
+
+================================================================================
+STEP 10 — Report Downloads
+================================================================================
+[16:08:11] [OK]   Payroll Paycheck downloaded: payroll_paycheck_2026-04-11_to_2026-04-17.pdf
+[16:08:12] [OK]   Cash Requirement downloaded: cash_requirement_2026-04-11_to_2026-04-17.pdf
+[16:08:15] [OK]   Paystub downloaded: paystub_2026-04-11_to_2026-04-17.pdf
+[16:08:15] [OK]   All reports downloaded successfully
+
+================================================================================
+SUMMARY
+================================================================================
+[16:08:15] [INFO] Status      : COMPLETE
+[16:08:15] [INFO] run_id      : 179e3852
+[16:08:15] [INFO] username    : testing@gmail.com
+[16:08:15] [INFO] period      : 2026-04-11 to 2026-04-17
+[16:08:15] [INFO] downloads   : C:\Users\Dell\Desktop\payroll_phase2\data-driven-files\timesheets\downloads\2026-04-17_16-04-51
+[16:08:15] [INFO] employees   : 10/15 verified on overview
+[16:08:15] [WARN] Missing employees on overview: 1, User, 2, User, 3, User, 4, User, 5, User
+
+================================================================================
+Log saved: 2026-04-17 16:08:15
+================================================================================
